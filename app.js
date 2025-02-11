@@ -11,6 +11,7 @@ var usersRouter = require("./routes/users");
 var doctorRouter = require("./routes/doctor");
 var patientRouter = require("./routes/patient");
 const { authorizer } = require("./lib/authorizer");
+const cors = require("cors");
 
 var app = express();
 
@@ -23,6 +24,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(cors({
+  origin : "*"
+}));
 
 // app.use('/', indexRouter);
 // app.use('/users', usersRouter);

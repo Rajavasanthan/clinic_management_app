@@ -28,6 +28,13 @@ const PatientVisitSchema = new mongoose.Schema({
   visit_notes: {
     type: String,
   },
+  nextVisit : {
+    type: Date
+  },
+  status : {
+    type: String,
+    default: "pending"
+  }
 });
 
 const PatientVisit = mongoose.model("PatientVisit", PatientVisitSchema);
