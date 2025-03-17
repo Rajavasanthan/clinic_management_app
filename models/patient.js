@@ -21,7 +21,7 @@ const PatientSchema = new mongoose.Schema({
   patient_gender: {
     type: String,
   },
-  patient_date_of_birth: {
+  patient_age: {
     type: String,
   },
   patient_address: {
@@ -43,10 +43,16 @@ const PatientSchema = new mongoose.Schema({
       },
     ],
   },
+  visits: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "PatientVisit",
+    }
+  ],
 });
 
-PatientSchema.index({patient_name: 'text'});
+PatientSchema.index({ patient_name: "text" });
 
 const Patient = mongoose.model("Patient", PatientSchema);
 
-module.exports = {Patient};
+module.exports = { Patient };

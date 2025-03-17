@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+// const { Patient } = require("./patient");
 
 const PatientVisitSchema = new mongoose.Schema({
   patient_id: {
@@ -6,7 +7,7 @@ const PatientVisitSchema = new mongoose.Schema({
     ref: "Patient",
   },
   patient_puid: {
-    type: String
+    type: String,
   },
   doctor_id: {
     type: mongoose.Schema.Types.ObjectId,
@@ -28,15 +29,15 @@ const PatientVisitSchema = new mongoose.Schema({
   visit_notes: {
     type: String,
   },
-  nextVisit : {
-    type: Date
+  nextVisit: {
+    type: Date,
   },
-  status : {
+  status: {
     type: String,
-    default: "pending"
-  }
+    default: "pending",
+  },
 });
 
 const PatientVisit = mongoose.model("PatientVisit", PatientVisitSchema);
 
-module.exports = {PatientVisit};
+module.exports = { PatientVisit };
